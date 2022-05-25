@@ -27,14 +27,13 @@ function multiply(a,b){
 }
 
 
-function drawEllipse(_Pvals) {
+function drawOval(_Pvals) {
     x0=_Pvals[0], y0=_Pvals[1], rx=_Pvals[2], ry=_Pvals[3], t=_Pvals[4];
-
-
+    
     axes=[
-            [  0,  rx, rx,  0 ],
-            [-ry, -ry, ry, ry]
-        ]; //original axes
+        [  0,  rx, rx,  0 ],
+        [-ry, -ry, ry, ry]
+    ]; //original axes
     Rot=rotate(axes, t); //rotate axes
     Mov1=translate(1,Rot,[x0,y0]);
     Mov2=translate(-1,Rot,[x0,y0]);
@@ -48,12 +47,14 @@ function drawEllipse(_Pvals) {
         Mov1[0][3], Mov1[1][3]
         ); 
         
-    context.bezierCurveTo(
-        Mov2[0][1], Mov2[1][1],
-        Mov2[0][2], Mov2[1][2],
-        Mov2[0][3], Mov2[1][3]);
+        context.bezierCurveTo(
+            Mov2[0][1], Mov2[1][1],
+            Mov2[0][2], Mov2[1][2],
+            Mov2[0][3], Mov2[1][3]);
             
-            
+            // context.moveTo(x0,y0);
+            // context.ellipse(x0, y0, rx, ry, -t, 0, 2 * Math.PI);
+    
     context.strokeStyle="rgb(255,245,203)";
     context.stroke();
     
@@ -79,7 +80,5 @@ curv2=[400,1000, 265];
 
 
 
-//Fire function
-drawEllipse(curv1);
-// drawEllipse(curv2);
+drawOval(curv1);
 drawCircle(curv2);
