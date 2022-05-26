@@ -1,13 +1,10 @@
-//FROM; http://www.williammalone.com/briefs/how-to-draw-ellipse-html5-canvas/
-
-//Fetch element
 var c = document.getElementById("c");
 var context = c.getContext("2d");
 
 // Geomerty functions
 
 const dotproduct = (a,b) => a.map((z,i)=>a[i]*b[i]).reduce((m,n) => m+n);
-const translate = (sw,x,dx) =>[x[0].map((u) => sw*u+dx[0]),x[1].map((v) =>sw*v+dx[1])];
+const translate = (sw,x,dx) =>[x[0].map((u) => sw*u+dx[0]),x[1].map((v) =>v+dx[1])];
 function rotate(x,u){
     // rotation of a list of vectors x through an angle u CCW.
     rot_mat=[
@@ -31,8 +28,8 @@ function drawOval(_Pvals) {
     x0=_Pvals[0], y0=_Pvals[1], rx=_Pvals[2], ry=_Pvals[3], t=_Pvals[4];
     
     axes=[
-        [  0,  rx, rx,  0 ],
-        [-ry, -ry, ry, ry]
+        [  0,  3*rx, rx,  0 ],
+        [-ry, -ry, 4*ry, 4*ry]
     ]; //original axes
     Rot=rotate(axes, t); //rotate axes
     Mov1=translate(1,Rot,[x0,y0]);
@@ -73,7 +70,7 @@ function drawCircle(_Pvals){
 }
 
 ang=-Math.PI/6;
-curv1=[0, 1000, 400, 1000,ang];
+curv1=[500, 500, 100, 100,ang];
 curv2=[400,1000, 265];
 
 
