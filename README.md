@@ -28,4 +28,4 @@ where
 - `x0, y0` are the xy-coordinated of the center of the circle.
 - `r` is the radius of the circle.
 
-We should mention that JavaScript has a builtin function, `ellipse()` that can also be used to draw an ellipse. However, since we are using the builtin  function `bezierCurveTo()`, `drawOval()`, we have more control over the produced ovals through the Bezier control points. One can think of these ovals as 'illusions' of an ellipses. 
+We should mention that JavaScript has a builtin function, `ellipse()` that can also be used to draw an ellipse. However, since we are using the builtin  function `bezierCurveTo()`, `drawOval()`, we have more control over the produced ovals through the Bezier control points. One can think of these ovals as 'illusions' of an ellipses. The file oval.html gives a quick example of that. 
